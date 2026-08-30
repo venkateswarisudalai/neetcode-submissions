@@ -1,0 +1,13 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+       
+        hashmap = {}
+
+        for word in strs:
+            sorted_word = tuple(sorted(word))
+
+            if sorted_word not in hashmap:
+                hashmap[sorted_word] = []
+            hashmap[sorted_word].append(word)
+
+        return list(hashmap.values())
