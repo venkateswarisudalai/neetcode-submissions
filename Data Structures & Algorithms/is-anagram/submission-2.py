@@ -1,0 +1,20 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        hashmap = {}
+
+        for char in s:
+            if char not in hashmap:
+                hashmap[char]=1
+
+            else:
+                hashmap[char]+=1
+        
+        for char in t:
+            if char not in hashmap:
+                return False
+            else:
+                hashmap[char]-=1
+
+        return all(value==0 for value in hashmap.values())
+
+        
